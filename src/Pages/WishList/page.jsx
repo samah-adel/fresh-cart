@@ -122,59 +122,63 @@ export default function WishList() {
           <Toaster />
           {wishListData?.data?.length > 0 ? (
             <>
-              <div className="bg-gray-100 max-w-5xl mx-auto mt-14 mb-20  rounded-2xl shadow-lg p-8">
-                <h1 className=" font-medium text-gray-800 mb-6 text-3xl">
-                  My wish List
-                </h1>
-                <div className="divide-y-2 divide-gray-300  mt-3 ">
-                  {wishListData?.data?.map((item) => {
-                    return (
-                      <div
-                        key={item?._id}
-                        className="flex flex-col md:flex-row items-center justify-between gap-6  pt-6 pb-14"
-                      >
-                        <div className="flex items-center gap-5 flex-1">
-                          <div className="w-32 h-32 object-contain rounded-xl ">
-                            <img src={item?.imageCover} alt={item?.title} />
+              <div className="px-5">
+                <div className="bg-gray-100 p-8 max-w-5xl mx-auto mt-14 mb-20  rounded-2xl shadow-lg">
+                  <h1 className=" font-medium text-gray-800 mb-6 text-3xl">
+                    My wish List
+                  </h1>
+                  <div className="divide-y-2 divide-gray-300  mt-3 ">
+                    {wishListData?.data?.map((item) => {
+                      return (
+                        <div
+                          key={item?._id}
+                          className="flex flex-col md:flex-row items-center justify-between gap-6  pt-6 pb-14"
+                        >
+                          <div className="flex items-center gap-5 flex-1">
+                            <div className="w-32 h-32 object-contain rounded-xl ">
+                              <img src={item?.imageCover} alt={item?.title} />
+                            </div>
+                            <div className="w-10/12 ms-3">
+                              <h3 className="text-xl font-semibold text-gray-800">
+                                {item?.title}
+                              </h3>
+                              <h4 className="text-green-600 text-xl font-bold mt-2">
+                                {item?.price} EGP
+                              </h4>
+                              <button
+                                onClick={() => {
+                                  handleDeleteWishListItem(item?._id);
+                                }}
+                                className="flex items-center gap-2 mt-4 text-red-500 hover:text-red-700 transition "
+                              >
+                                <FaRegTrashAlt /> Remove
+                              </button>
+                            </div>
                           </div>
-                          <div className="w-10/12 ms-3">
-                            <h3 className="text-xl font-semibold text-gray-800">
-                              {item?.title}
-                            </h3>
-                            <h4 className="text-green-600 text-xl font-bold mt-2">
-                              {item?.price} EGP
-                            </h4>
+                          <div className="w-2/12 flex items-center justify-around  ">
                             <button
                               onClick={() => {
-                                handleDeleteWishListItem(item?._id);
+                                handleAddProduct(item?._id);
                               }}
-                              className="flex items-center gap-2 mt-4 text-red-500 hover:text-red-700 transition "
+                              className=" bg-green-300 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-medium transition duration-300 whitespace-nowrap"
                             >
-                              <FaRegTrashAlt /> Remove
+                              add to cart
                             </button>
                           </div>
                         </div>
-                        <div className="w-2/12 flex items-center justify-around  ">
-                          <button
-                            onClick={() => {
-                              handleAddProduct(item?._id);
-                            }}
-                            className=" bg-green-300 hover:bg-green-700 text-white px-6 py-3 rounded-xl font-medium transition duration-300 whitespace-nowrap"
-                          >
-                            add to cart
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}{" "}
+                      );
+                    })}{" "}
+                  </div>
                 </div>
               </div>
             </>
           ) : (
-            <div className="bg-gray-100 max-w-5xl mx-auto mt-14 mb-20  rounded-2xl shadow-lg p-8">
-              <h1 className=" font-medium text-gray-800 mb-6 text-3xl">
-                My wish List
-              </h1>
+            <div className="px-5">
+              <div className="bg-gray-100 max-w-5xl mx-auto mt-14 mb-20  rounded-2xl shadow-lg p-8">
+                <h1 className=" font-medium text-gray-800 mb-6 text-3xl">
+                  My wish List
+                </h1>
+              </div>
             </div>
           )}
         </>

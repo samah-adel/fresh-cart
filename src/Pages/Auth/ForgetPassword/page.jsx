@@ -36,13 +36,13 @@ export default function ForgetPassword() {
 
   return (
     <div className="py-10">
-      <h1 className="text-2xl font-semibold  -pt-2 pb-8 max-w-5xl mx-auto space-y-4  ">
+      <h1 className="text-2xl font-semibold px-6 -pt-2 pb-8 max-w-5xl mx-auto space-y-4  ">
         Please enter your verification code
       </h1>
 
       <form
         onSubmit={forgetForm.handleSubmit}
-        className="max-w-5xl mx-auto  space-y-4 "
+        className="max-w-5xl mx-auto p-6 space-y-4 "
       >
         <div className="mb-5">
           <label

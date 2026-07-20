@@ -100,7 +100,7 @@ export default function Cart() {
       ) : (
         <>
           {cartData?.products?.length > 0 ? (
-            <div className="max-w-5xl mx-auto mt-14 mb-20 ">
+            <div className="max-w-5xl mx-auto mt-14 mb-20 px-5  ">
               <div className="bg-gray-100  rounded-2xl shadow-lg p-8">
                 <div className="flex flex-col md:flex-row justify-between md:items-center gap-6 mb-8">
                   <div>
@@ -134,7 +134,7 @@ export default function Cart() {
                         className="flex flex-col md:flex-row items-center justify-between gap-6 py-6"
                       >
                         <div className="flex justify-between items-center w-10/12">
-                          <div className="w-2/12">
+                          <div>
                             <img
                               src={product?.product?.imageCover}
                               alt={product?.product?.title}

@@ -49,13 +49,13 @@ export default function ResetPassword() {
 
   return (
     <div className="py-20">
-      <h1 className="text-2xl font-semibold  -pt-2 pb-8 max-w-5xl mx-auto space-y-4  ">
+      <h1 className="text-2xl font-semibold px-6 -pt-2 pb-8 max-w-5xl mx-auto space-y-4  ">
         Reset your account password
       </h1>
 
       <form
         onSubmit={resetPasswordForm.handleSubmit}
-        className="max-w-5xl mx-auto  space-y-4 "
+        className="max-w-5xl mx-auto p-6 space-y-4 "
       >
         <div className="mb-5">
           <label
