@@ -12,19 +12,3 @@ export default function AuthContextProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-// export default function AuthContextProvider({ children }) {
-//   let [token, setToken] = useState(null);
-
-//   useEffect(() => {
-//     const isLogin = localStorage.getItem("token");
-//      console.log("Context:", isLogin);
-//     if (isLogin) {
-//       setToken(isLogin);
-//     }
-//   }, []);
-//   return (
-//     <AuthContext.Provider value={{ token, setToken }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// }
