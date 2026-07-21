@@ -35,9 +35,8 @@ export default function Login() {
       const { data: response } = await login(data);
       if (response.message === "success") {
         console.log(response.token);
-
-        setToken(response.token);
         localStorage.setItem("token", response.token);
+        setToken(response.token);
         nav("/");
       }
     } catch (err) {

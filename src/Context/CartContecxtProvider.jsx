@@ -5,16 +5,18 @@ export default function CartContecxtProvider({ children }) {
   //to set numbers
   const [numbersCartItem, setNumbersCartItem] = useState(0);
 
-  const headerOption = {
-    headers: {
-      token: localStorage.getItem("token"),
-    },
-  };
+  function getHeaderOption() {
+    return {
+      headers: {
+        token: localStorage.getItem("token"),
+      },
+    };
+  }
   const baseURL = "https://ecommerce.routemisr.com/api/v1/cart";
 
   //to get cart of user
   function getUserCart() {
-    return axios.get(baseURL, headerOption);
+    return axios.get(baseURL, getHeaderOption());
   }
 
   //to get numbers of items in cart
@@ -28,24 +30,24 @@ export default function CartContecxtProvider({ children }) {
           console.log(error);
         });
     }
-  }, [numbersCartItem]);
+  }, []);
 
   //add product to cart
   function addProduct(id) {
     let data = {
       productId: id,
     };
-    return axios.post(baseURL, data, headerOption);
+    return axios.post(baseURL, data, getHeaderOption());
   }
 
   //delete product from cart
   function deleteProduct(id) {
-    return axios.delete(`${baseURL}/${id}`, headerOption);
+    return axios.delete(`${baseURL}/${id}`, getHeaderOption());
   }
 
   // clear cart
   function clearCart() {
-    return axios.delete(baseURL, headerOption);
+    return axios.delete(baseURL, getHeaderOption());
   }
 
   //update items count
@@ -53,7 +55,7 @@ export default function CartContecxtProvider({ children }) {
     let data = {
       count: count,
     };
-    return axios.put(`${baseURL}/${id}`, data, headerOption);
+    return axios.put(`${baseURL}/${id}`, data, getHeaderOption());
   }
 
   return (
