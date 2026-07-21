@@ -149,7 +149,7 @@ export default function Products() {
                     key={product._id}
                     className=" lg:w-3/12 md:w-6/12 w-full p-5  "
                   >
-                    <div className="bg-white rounded-xl hover:shadow-md  hover:shadow-green-600 transition-all duration-300 overflow-hidden group">
+                    <div className="bg-white rounded-xl border border-green-200 md:border-transparent md:hover:border-green-300 shadow-sm md:hover:shadow-md md:hover:shadow-green-600 transition-all duration-300 overflow-hidden group">
                       <Link to={`/productDetails/${product._id}`}>
                         <img
                           src={product.imageCover}
@@ -191,14 +191,16 @@ export default function Products() {
                           />
                         </button>
                       </div>
-                      <button
-                        onClick={() => {
-                          handleAddProduct(product?._id);
-                        }}
-                        className="bg-green-600 text-white ms-2 px-12 py-2 rounded-lg hover:bg-green-700  translate-y-20 duration-500  group-hover:-translate-y-9"
-                      >
-                        Add to Cart
-                      </button>
+                      <div className="py-2">
+                        <button
+                          onClick={() => {
+                            handleAddProduct(product?._id);
+                          }}
+                          className="bg-green-600 text-white w-[calc(100%-16px)] mx-2 py-2 rounded-lg hover:bg-green-700 translate-y-0 md:translate-y-20 md:group-hover:-translate-y-2 transition-all duration-500"
+                        >
+                          Add to Cart
+                        </button>
+                      </div>
                     </div>
                   </div>
                 );
