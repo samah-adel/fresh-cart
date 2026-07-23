@@ -49,6 +49,23 @@ export default function Login() {
     validationSchema: validationInputs,
   });
 
+  async function loginDemo() {
+    try {
+      const demoData = {
+        email: "samah@gmail.com",
+        password: "samah1122",
+      };
+
+      const { data: response } = await login(demoData);
+
+      setToken(response.token);
+      localStorage.setItem("token", response.token);
+      nav("/");
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
     <div className="py-20">
       <h1 className="text-2xl font-semibold  px-6 -pt-2 pb-8 max-w-5xl mx-auto space-y-4  ">
@@ -120,6 +137,14 @@ export default function Login() {
             Login
           </button>
         </div>
+
+        <button
+          type="submit"
+          onClick={loginDemo}
+          className=" w-36 mt-4 border border-green-600 text-green-600 py-3 rounded-lg hover:bg-green-200 transition"
+        >
+          Login as Guest
+        </button>
 
         {errorMessage ? (
           <p className="max-w-5xl mx-auto outline-1 my-3 py-3 text-sm ps-3 outline-red-600 bg-red-200 text-red-500 rounded-md">
